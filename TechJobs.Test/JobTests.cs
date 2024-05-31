@@ -1,4 +1,6 @@
 ﻿
+using System.Data.Common;
+
 namespace TechJobs.Tests
 {
 	[TestClass]
@@ -37,6 +39,40 @@ namespace TechJobs.Tests
         public void TestJobsForEquality()
         {
             Assert.IsFalse(job1.Equals(job2));
+        }
+
+        [TestMethod]
+        public void TestToStringStartsAndEndsWithNewLine()
+        {
+            Assert.IsTrue(job1.ToString().StartsWith(Environment.NewLine));
+            Assert.IsTrue(job1.ToString().EndsWith(Environment.NewLine));
+        }
+
+        [TestMethod]
+        public void TestToStringContainsCorrectLabelsAndData()
+        {
+             Assert.AreEqual(job3.ToString(), 
+             Environment.NewLine + 
+             "ID: "+ job3.Id + Environment.NewLine +
+             "Name: " + job3.Name + Environment.NewLine +
+             "Employer: " + job3.EmployerName + Environment.NewLine +
+             "Location: " + job3.EmployerLocation + Environment.NewLine +
+             "Position Type: " + job3.JobType + Environment.NewLine +
+             "Core Competency: " + job3.JobCoreCompetency + 
+             Environment.NewLine);
+        }
+
+        [TestMethod]
+        public void TestToStringHandlesEmptyField()
+        {
+            Assert.AreEqual(job2.ToString(), Environment.NewLine +
+            "ID: "+ job2.Id + Environment.NewLine +
+            "Name: " + "Data not available" + Environment.NewLine +
+            "Employer: " + "Data not available"+ Environment.NewLine +
+            "Location: " + "Data not available" + Environment.NewLine +
+            "Position Type: " + "Data not available"+ Environment.NewLine +
+            "Core Competency: " + "Data not available" +
+            Environment.NewLine);
         }
 
     }
