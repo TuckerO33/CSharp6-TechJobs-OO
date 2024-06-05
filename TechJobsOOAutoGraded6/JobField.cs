@@ -7,10 +7,11 @@ public abstract class JobField
     private static int nextId = 1;
     public string Value { get; set; }
 
-    public JobField()
+    public JobField(string value)
     {
         Id = nextId;
         nextId++;
+        Value = value;
     }
 
     public override int GetHashCode()
@@ -22,4 +23,14 @@ public abstract class JobField
     {
         return Value;
     }
+   public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+        return Equals((JobField)obj);
+    }
+
+    
 }
