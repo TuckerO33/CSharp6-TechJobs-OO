@@ -48,23 +48,23 @@ namespace TechJobsOOAutoGraded6
 
         public override string ToString()
         {
-            if(Name == null) 
+            if(Name == "") 
             {
                 Name = "Data not available";
             }
-            if(EmployerName == null) 
+            if(EmployerName.Value == "") 
             {
                 EmployerName = new Employer("Data not available");
             }
-            if(EmployerLocation == null) 
+            if(EmployerLocation.Value == "") 
             {
                 EmployerLocation = new Location("Data not available");
             }
-            if(JobType == null) 
+            if(JobType.Value == "") 
             {
                 JobType = new PositionType("Data not available");
             }
-            if(JobCoreCompetency == null) 
+            if(JobCoreCompetency.Value == "") 
             {
                 JobCoreCompetency = new CoreCompetency("Data not available");
             }
